@@ -1,10 +1,10 @@
 package tests;
 
 import com.github.javafaker.Faker;
-import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import utilities.Config;
 import utilities.Driver;
 
@@ -16,7 +16,7 @@ public class Google {
         String word = faker.lorem().word();
         Driver.getDriver().findElement(By.name("q")).sendKeys(word + Keys.ENTER);
         String title  = Driver.getDriver().getTitle();
-        Assert.assertTrue("Title failed", title.contains(word));
+        Assert.assertTrue( title.contains(word), "Title failed");
         Driver.quit();
 
     }
